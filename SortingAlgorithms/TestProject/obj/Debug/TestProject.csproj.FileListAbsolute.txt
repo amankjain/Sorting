@@ -1,0 +1,8 @@
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\bin\Debug\TestProject.exe.config
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\bin\Debug\TestProject.exe
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\bin\Debug\TestProject.pdb
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\bin\Debug\SortingAlgorithms.dll
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\bin\Debug\SortingAlgorithms.pdb
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\obj\Debug\TestProject.exe
+D:\Work\Aman\Sorting\SortingAlgorithms\TestProject\obj\Debug\TestProject.pdb
