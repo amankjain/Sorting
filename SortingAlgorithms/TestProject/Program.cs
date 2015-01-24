@@ -23,7 +23,9 @@ namespace TestProject
             ElementarySorts e1 = new ElementarySorts();            
             long[] arrayUnsorted = { 100, 98, 1, 55, 20, 33, 5 };
             printArray(arrayUnsorted);
-            long[] arraySorted = e1.bubbleSort(arrayUnsorted);
+            //long[] arraySorted = e1.bubbleSort(arrayUnsorted);
+           // printArray(arraySorted);
+            long[] arraySorted = e1.SelectionSort(arrayUnsorted);
             printArray(arraySorted);
             Console.ReadLine();
         }
