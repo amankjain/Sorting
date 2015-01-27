@@ -14,9 +14,20 @@ namespace SortingAlgorithms
             array[positionX] = array[positionY];
             array[positionY] = value;
         }
-        public long[] IndexSort(long[] array)
+        public long[] InsertionSort(long[] array)
         {
-
+            //At each index, check current value against previous and place in correct position. Do not look forward, only backward 
+            for (int x = 0; x < array.Length; x++)
+            {                
+                for (int y = x; y > 0 ; y--) // y being 0 is not included. Second is compared against first (edge case)
+                {
+                    if(array[y] < array[y-1])
+                    {
+                        swap(array, y, y - 1);
+                    }
+                }
+                
+            }
             return array;
         }
         public long[] SelectionSort(long[] array)

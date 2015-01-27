@@ -24,8 +24,8 @@ namespace TestProject
             long[] arrayUnsorted = { 100, 98, 1, 55, 20, 33, 5 };
             printArray(arrayUnsorted);
             //long[] arraySorted = e1.bubbleSort(arrayUnsorted);
-           // printArray(arraySorted);
-            long[] arraySorted = e1.SelectionSort(arrayUnsorted);
+           //long[] arraySorted = e1.SelectionSort(arrayUnsorted);           
+            long[] arraySorted = e1.InsertionSort(arrayUnsorted);
             printArray(arraySorted);
             Console.ReadLine();
         }
