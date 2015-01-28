@@ -3,3 +3,7 @@ D:\Work\Aman\Sorting\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgori
 D:\Work\Aman\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.dll
 D:\Work\Aman\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
 D:\Work\Aman\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojResolveAssemblyReference.cache
+D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgorithms.dll
+D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgorithms.pdb
+D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.dll
+D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
