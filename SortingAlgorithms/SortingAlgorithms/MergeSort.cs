@@ -12,18 +12,25 @@ namespace SortingAlgorithms
         //Mergesort is an asymptotically optimal compare-based sorting algorithm. 
         //That is, both the number of compares used by mergesort in the worst case and the minimum number of compares that any compare-based sorting algorithm can guarantee are ~N lg N. 
         //Only CON is that extra space propotional to N
+        
+        //https://www.youtube.com/watch?v=TzeBrDU-JaY EXCELLENT
 
         public void sort<T>(T[] array) where T: IComparable
         {
-            T[] auxArray = new T[array.Length];  
-            
+            T[] auxArray = new T[array.Length];
+            sort(array, auxArray, 0, array.Length - 1);
         }
         private void sort<T>(T[] arrayToSort, T[] auxArray, int low, int high)
         {
-            
+            if (high <= low) return;
+            int mid = (high + low) / 2;
+            sort(arrayToSort, auxArray, low, mid);
+            sort(arrayToSort, auxArray, mid+1, high);
+            merge(arrayToSort, auxArray, low, high, mid);
         }
-        private void merge<T>(T[] arrayLow, T[] arrayHigh, T[] auxArray, int low, int high, int mid)
+        private void merge<T>(T[] arrayToSort, T[] auxArray, int low, int high, int mid)
         {
+
             
         }
 
