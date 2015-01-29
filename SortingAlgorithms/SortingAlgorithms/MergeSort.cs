@@ -25,10 +25,11 @@ namespace SortingAlgorithms
         private void sort<T>(T[] arrayToSort, T[] auxArray, int low, int high) where T : IComparable
         {
             if (high <= low) return;
+            //int mid = low + (high - low) / 2; //both ways of calculating mid seem to work
             int mid = (high + low) / 2;
-            sort(arrayToSort, auxArray, low, mid);
-            sort(arrayToSort, auxArray, mid+1, high);
-            merge(arrayToSort, auxArray, low, high, mid);
+            sort(arrayToSort, auxArray, low, mid);         //DOES not really sort, recursively breaks subarrays until only 1 element left
+            sort(arrayToSort, auxArray, mid + 1, high);    //DOES not really sort, recursively breaks subarrays until only 1 element left
+            merge(arrayToSort, auxArray, low, high, mid);  //MERGES subarrays starting with size 1,2,...until two half sized arrays 
         }
         private bool merge<T>(T[] arrayToSort, T[] auxArray, int low, int high, int mid) where T : IComparable
         {
@@ -40,22 +41,22 @@ namespace SortingAlgorithms
             {
                 return false;
             }
-            int i = low;
-            int j = mid + 1;
+            int i = low;     //Left Array start until mid
+            int j = mid + 1; //Right array start until high
             //copy a[] to aux[]
-            for(int k= low; k <= high ; k++)
+            for(int k= low; k <= high ; k++) //K goes from low to high. //k < high for 2 or more elements and k=h for 1 element?  . Can also use set of 3 while loops as per yopu tube video 
             {
-                auxArray[k] = arrayToSort[k];
+                auxArray[k] = arrayToSort[k];  
             }
             //
             for(int k= low; k <= high ; k++)
             {
-                if (i > mid) 
+                if (i > mid)  //if all left array items are picked
                 {
                     arrayToSort[k] = auxArray[j];
                     j++;
                 }
-                else if(j > high)
+                else if (j > high) //if all right array items are picked
                 {
                     arrayToSort[k] = auxArray[i];
                     i++;
@@ -81,7 +82,7 @@ namespace SortingAlgorithms
         {
             for(int x=low+1; x <= high; x++)
             {
-                if(less(array[x],array[x-1]) == false)
+                if(less(array[x-1],array[x]) == false)
                 {
                     return false;
                 }
