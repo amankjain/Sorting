@@ -25,8 +25,10 @@ namespace TestProject
             printArray(arrayUnsorted);
             //long[] arraySorted = e1.bubbleSort(arrayUnsorted);
            //long[] arraySorted = e1.SelectionSort(arrayUnsorted);           
-            long[] arraySorted = e1.InsertionSort(arrayUnsorted);
-            printArray(arraySorted);
+            //long[] arraySorted = e1.InsertionSort(arrayUnsorted);
+            MergeSort m = new MergeSort();
+            m.sort(arrayUnsorted);
+            printArray(arrayUnsorted);
             Console.ReadLine();
         }
     }
