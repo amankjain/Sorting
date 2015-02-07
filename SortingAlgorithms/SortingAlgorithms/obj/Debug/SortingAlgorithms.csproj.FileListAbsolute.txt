@@ -7,3 +7,4 @@ D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\bin\
 D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.dll
 D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
 D:\Work\Aman\techKnowledge\Algo\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojResolveAssemblyReference.cache
+D:\Work\Aman\Sorting\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojResolveAssemblyReference.cache
