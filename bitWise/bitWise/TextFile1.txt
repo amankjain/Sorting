@@ -1,0 +1,73 @@
+﻿
+up vote
+18
+down vote
+accepted
+function swap16(val) {
+    return ((val & 0xFF) << 8)
+           | ((val >> 8) & 0xFF);
+}
+Explanation:
+
+Let's say that val is, for example, 0xAABB.
+Mask val to get the LSB by &ing with 0xFF: result is 0xBB.
+Shift that result 8 bits to the left: result is 0xBB00.
+Shift val 8 bits to the right: result is 0xAA (the LSB has "dropped off" the right-hand side).
+Mask that result to get the LSB by &ing with 0xFF: result is 0xAA.
+Combine the results from steps 3 and step 5 by |ing them together:
+0xBB00 | 0xAA is 0xBBAA.
+function swap32(val) {
+    return ((val & 0xFF) << 24)
+           | ((val & 0xFF00) << 8)
+           | ((val >> 8) & 0xFF00)
+           | ((val >> 24) & 0xFF);
+}
+Explanation:
+
+Let's say that val is, for example, 0xAABBCCDD.
+Mask val to get the LSB by &ing with 0xFF: result is 0xDD.
+Shift that result 24 bits to the left: result is 0xDD000000.
+Mask val to get the second byte by &ing with 0xFF00: result is 0xCC00.
+Shift that result 8 bits to the left: result is 0xCC0000.
+Shift val 8 bits to the right: result is 0xAABBCC (the LSB has "dropped off" the right-hand side).
+Mask that result to get the second byte by &ing with 0xFF00: result is 0xBB00.
+Shift val 24 bits to the right: result is 0xAA (everything except the MSB has "dropped off" the right-hand side).
+Mask that result to get the LSB by &ing with 0xFF: result is 0xAA.
+Combine the results from steps 3, 5, 7 and 9 by |ing them together:
+0xDD000000 | 0xCC0000 | 0xBB00 | 0xAA is 0xDDCCBBAA.
+shareimprove this answer
+edited Mar 16 '11 at 10:41
+
+answered Mar 16 '11 at 3:09
+
+LukeH
+121k16191299
+  	 	
+so, this seems to work...is there a plain spoken explanation or should i just take it and run? –  griotspeak Mar 16 '11 at 3:23
+  	 	
+@griotspeak: I've edited to attempt an explanation, although I suspect that it would make more sense for you to read the wikipedia articles on endianness and bitwise operations instead. –  LukeH Mar 16 '11 at 10:45
+  	 	
+ok, this wasn't actually what i wanted, but i think i am simply being unclear. I need a literal reversal of the first 8(or 16?) bits. I think this answer gets me close enough to work it out. –  griotspeak Mar 16 '11 at 19:27 
+  	 	
+function swap8(val) { return ((val & 0x1) << 7) | ((val & 0x2) << 5) | ((val & 0x4) << 3) | ((val & 0x8) << 1) | ((val >> 1) & 0x8) | ((val >> 3) & 0x4) | ((val >> 5) & 0x2) | ((val >> 7) & 0x1); } was my final solution –  griotspeak Mar 16 '11 at 20:32
+  	 	
+In case this helps anyone, the swap16() function alone was not handling signed integers correctly. I had to combine it with this in order to get everything working correctly: ((((val & 0xFF) << 8) | ((val >> 8) & 0xFF)) << 16) >> 16 –  whiskeyspider Jan 16 '14 at 21:02 
+show 1 more comment
+
+up vote
+1
+down vote
+Use the << (bit shift) operator. Ex: 1 << 2 == 4.
+
+I really think that the underlying implementation of JavaScript will use whatever endianess the platform it is running on is using. Since you cannot directly access memory in JavaScript you won't ever have to worry about how numbers are represented physically in memory. Bit shifting integer values always yield the same result no matter the endianess. You only see a difference when looking at individual bytes in memory using pointers.
+
+shareimprove this answer
+answered Mar 16 '11 at 3:07
+
+Martin
+1146
+  	 	
+I am literally being given a decimal representation of a little endian number and need to give back a decimal representation of a little ending number. A display is being driven by the binary representation... so it matters. –  griotspeak Mar 16 '11 at 3:26
+  	 	
+i think i see what you were getting at, and i think that in many cases you would be correct. the number i get and give is meant to turn 8 lights on from left to right so i will, essentially, be looking at the individual bytes. –  griotspeak Mar 16 '11 at 20:39 
+add a comment
