@@ -11,7 +11,8 @@ namespace QuickSortTrial
         static void Main(string[] args)
         {
             long[] array = { 100,  23,  28, 33, 1, 55, 19,5, 2 };
-            QuickSort qs = new QuickSort();
+            QuickSort<long> qs = new QuickSort<long>();
+            Console.WriteLine("Testing QuickSOrt");
             for (int x = 0; x < array.Length; x++ )
             {
                 Console.Write(array[x].ToString() + '\t');

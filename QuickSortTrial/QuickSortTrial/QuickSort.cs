@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace QuickSortTrial
 {
-    public class QuickSort
+    public class QuickSort<T> where T : IComparable
     {
-        public void sort<T>(T[] array) where T : IComparable
+        public void sort(T[] array) 
         {
             Shuffle(array);
             sort(array,  0, array.Length - 1);
         }
-        private void sort<T>(T[] arrayToSort,  int low, int high) where T : IComparable
+        private void sort(T[] arrayToSort,  int low, int high) 
         {
             if (high <= low) return;            
             int j= partition(arrayToSort, low, high);  
@@ -21,13 +21,13 @@ namespace QuickSortTrial
             sort(arrayToSort, j + 1, high);
            
         }
-        private void swap<T>(T[] arrayToSort, int x, int y) where T:IComparable
+        private void swap(T[] arrayToSort, int x, int y) 
         {
             T value = arrayToSort[x];
             arrayToSort[x] = arrayToSort[y];
             arrayToSort[y] = value;
         }
-        private int partition<T>(T[] arrayToSort,  int low, int high) where T : IComparable
+        private int partition(T[] arrayToSort,  int low, int high) 
         {
             int i = low;
             int j = high + 1;
@@ -58,7 +58,7 @@ namespace QuickSortTrial
             swap(arrayToSort, low, j);
             return j;
         }
-        public bool isSorted<T>(T[] array, int low, int high) where T : IComparable
+        public bool isSorted(T[] array, int low, int high) 
         {
             for (int x = low + 1; x <= high; x++)
             {
@@ -69,11 +69,11 @@ namespace QuickSortTrial
             }
             return true;
         }
-        public bool less<T>(T a, T b) where T : IComparable
+        public bool less(T a, T b) 
         {
             return a.CompareTo(b) < 0; //<0 is less thab ;0 is same; >0 is greater than
         }
-        public  void Shuffle<T>( IList<T> list)
+        public  void Shuffle( IList<T> list)
         {
             Random rng = new Random();
             int n = list.Count;
